@@ -45,14 +45,15 @@ AD.3 Cennik sprzedaży i kupna powinny być DICT (DICT):
 
 
 """
+from PyQt5.QtWidgets import QApplication
 
 TYPY_ZWIERZAT = dict()
 TYPY_KARMY = dict()
 TYPY_PRODUKTOW = dict()
-ZWIERZETA = list()      # lista posiadanych zwierząt
-KARMY = dict()          # lista posiadanej karmy - DICT
-PORTFEL = 0             # posiadane pieniądze
-SPICHLERZ = dict()      # posiadane produkty (nie karma)
+ZWIERZETA = list()  # lista posiadanych zwierząt
+KARMY = dict()  # lista posiadanej karmy - DICT
+PORTFEL = 0  # posiadane pieniądze
+SPICHLERZ = dict()  # posiadane produkty (nie karma)
 CENY_SPRZEDAZY = dict()
 CENY_KUPNA = dict()
 
@@ -72,21 +73,40 @@ PORTFEL += 10  # Zaczynamy z 10 monetami
 print(f'Witaj na gospodarce.')
 
 print(f'Aktualnie posiadasz {PORTFEL} monet oraz:\n- Zwierzęta:')
+txt_zwierzeta = ''
 i = 1
 for e in ZWIERZETA:
     print(f"{i}. {TYPY_ZWIERZAT[e]}")
+    txt_zwierzeta += f"{i}. {TYPY_ZWIERZAT[e]}"
     i += 1
+txt_karmy = ''
 print('- Karmy:')
 i = 1
 for e in KARMY:
     print(f"{i}. {TYPY_KARMY[e]} - {KARMY[e]} porcji")
+    txt_karmy += f"{i}. {TYPY_KARMY[e]} - {KARMY[e]} porcji"
     i += 1
 # dalej = True
-while True:
-    for e in OPERACJE_USERA:
-        print(f"{e} - {OPERACJE_USERA[e]}")
+# while True:
+#     for e in OPERACJE_USERA:
+#         print(f"{e} - {OPERACJE_USERA[e]}")
+#
+#     opcja = input('Co chcesz zrobić? ')
+#     if opcja == '3':
+#         print('Koniec tury')
+#         break
 
-    opcja = input('Co chcesz zrobić? ')
-    if opcja == '3':
-        print('Koniec tury')
-        break
+
+if __name__ == '__main__':
+    import sys
+    import okno
+
+    app = QApplication(sys.argv)
+    my_window = okno.MyWindow()
+    my_window.ustaw_stat_war('portfel', PORTFEL)
+    my_window.ustaw_stat_war('zwierzeta', txt_zwierzeta)
+    my_window.ustaw_stat_war('karma', txt_karmy)
+    my_window.ustaw_stat_war('spichlerz', 'PUSTO')
+
+    my_window.pokaz()
+    sys.exit(app.exec_())
