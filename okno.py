@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QPushButton, QMessageBox
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtWidgets import QPlainTextEdit
 from PyQt5.QtCore import Qt
+from fukcje import funkcje as f
 
 
 class MyWindow(QWidget):
@@ -11,7 +12,7 @@ class MyWindow(QWidget):
     przyciski.append({'nazwa': 'Nazwa przycisku', 'enable': True})
     buttons = []
     stat_labels = []
-    stat_labels_war = {'portfel': '1', 'zwierzeta': '2', 'karma': '3', 'spichlerz': '4'}
+    stat_labels_war = {'portfel': '0', 'zwierzeta': '2', 'karma': '3', 'spichlerz': '4'}
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -70,7 +71,7 @@ class MyWindow(QWidget):
         # przypisanie utworzonego układu do okna
         self.setLayout(ukladT)
 
-        self.setGeometry(50, 50, 1200, 800)  # OKNO (pozycja X, pozycja Y, wielkość x, wielkość y)
+        self.setGeometry(50, 50, 800, 600)  # OKNO (pozycja X, pozycja Y, wielkość x, wielkość y)
         self.setWindowTitle("Okno Window")
 
         self.btn_grp = QButtonGroup()
@@ -80,7 +81,11 @@ class MyWindow(QWidget):
 
         self.btn_grp.buttonClicked.connect(self.on_click)
 
-
+    def pobierz_stan(self):
+        self.stat_war_portfel.setText(str(f.pobierz_stan('portfel')))
+        self.stat_war_zwierzeta.setText(str(f.pobierz_stan('zwierzeta')))
+        self.stat_war_karma.setText(str(f.pobierz_stan('karmy')))
+        self.stat_war_spichlerz.setText(str(f.pobierz_stan('spichlerz')))
 
     def on_click(self, btn):
         self.ta_main.clear()
@@ -95,15 +100,17 @@ class MyWindow(QWidget):
 
     def closeEvent(self, event):
 
-        odp = QMessageBox.question(
-            self, 'Komunikat',
-            "Czy na pewno koniec?",
-            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        # odp = QMessageBox.question(
+        #     self, 'Komunikat',
+        #     "Czy na pewno koniec?",
+        #     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        #
+        # if odp == QMessageBox.Yes:
+        #     event.accept()
+        # else:
+        #     event.ignore()
 
-        if odp == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
+        event.accept()
 
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_Escape:
