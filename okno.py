@@ -96,7 +96,7 @@ class MyWindow(QWidget):
 
     def pokaz(self):
         self.show()
-        print('START')
+        # print('START')
 
     def closeEvent(self, event):
 

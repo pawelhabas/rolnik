@@ -35,16 +35,16 @@ def pobierz_stan(ktory):
         txt_zwierzeta = ''
         i = 1
         for e in ZWIERZETA:
-            print(f"{i}. {TYPY_ZWIERZAT[e]}")
+            # print(f"{i}. {TYPY_ZWIERZAT[e]}")
             txt_zwierzeta += f"{i}. {TYPY_ZWIERZAT[e]}\n"
             i += 1
         return txt_zwierzeta
     if ktory == 'karmy':
         txt_karmy = ''
-        print('- Karmy:')
+        # print('- Karmy:')
         i = 1
         for e in KARMY:
-            print(f"{i}. {TYPY_KARMY[e]} - {KARMY[e]} porcji")
+            # print(f"{i}. {TYPY_KARMY[e]} - {KARMY[e]} porcji")
             txt_karmy += f"{i}. {TYPY_KARMY[e]} - {KARMY[e]} porcji"
             i += 1
         return txt_karmy

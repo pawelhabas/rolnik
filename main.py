@@ -47,27 +47,27 @@ AD.3 Cennik sprzedaży i kupna powinny być DICT (DICT):
 """
 from PyQt5.QtWidgets import QApplication
 
-TYPY_ZWIERZAT = dict()
-TYPY_KARMY = dict()
-TYPY_PRODUKTOW = dict()
-ZWIERZETA = list()  # lista posiadanych zwierząt
-KARMY = dict()  # lista posiadanej karmy - DICT
+# TYPY_ZWIERZAT = dict()
+# TYPY_KARMY = dict()
+# TYPY_PRODUKTOW = dict()
+# ZWIERZETA = list()  # lista posiadanych zwierząt
+# KARMY = dict()  # lista posiadanej karmy - DICT
 # PORTFEL = 0  # posiadane pieniądze
-SPICHLERZ = dict()  # posiadane produkty (nie karma)
-CENY_SPRZEDAZY = dict()
-CENY_KUPNA = dict()
-
-TYPY_ZWIERZAT[1] = 'kura'
-TYPY_KARMY[1] = 'karma dla kur'
-TYPY_PRODUKTOW[1] = 'jajko'
-
-CENY_SPRZEDAZY[1] = 1
-CENY_KUPNA[1] = 3
-OPERACJE_USERA = {1: 'Nakarm kurę', 2: 'Zbierz jako', 3: 'Koniec tury', 4: 'Sprzedaj na targu jajko',
-                  5: 'Kup na targu karmę'}
-
-ZWIERZETA.append(1)  # Zaczynamy z 1 kurą
-KARMY[1] = 5  # Zaczynamy z karmą na 5 dni dla kurczaków
+# SPICHLERZ = dict()  # posiadane produkty (nie karma)
+# CENY_SPRZEDAZY = dict()
+# CENY_KUPNA = dict()
+#
+# TYPY_ZWIERZAT[1] = 'kura'
+# TYPY_KARMY[1] = 'karma dla kur'
+# TYPY_PRODUKTOW[1] = 'jajko'
+#
+# CENY_SPRZEDAZY[1] = 1
+# CENY_KUPNA[1] = 3
+# OPERACJE_USERA = {1: 'Nakarm kurę', 2: 'Zbierz jako', 3: 'Koniec tury', 4: 'Sprzedaj na targu jajko',
+#                   5: 'Kup na targu karmę'}
+#
+# ZWIERZETA.append(1)  # Zaczynamy z 1 kurą
+# KARMY[1] = 5  # Zaczynamy z karmą na 5 dni dla kurczaków
 # PORTFEL += 10  # Zaczynamy z 10 monetami
 
 print(f'Witaj na gospodarce.')
